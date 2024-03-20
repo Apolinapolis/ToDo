@@ -2,14 +2,18 @@
   padding: 30px;
   display: flex;
   background-color:#bbcfce ;
+
 }
 
 .App > div {
   margin-right: 50px;
 }
-
+li {
+  list-style-type: none
+}
 .error {
   border: brown 2px solid;
+
 }
 
 .error-message {
@@ -22,4 +26,6 @@
 
 .is-done {
   opacity: 0.5;
+  text-decoration: line-through
 }
+
