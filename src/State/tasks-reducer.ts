@@ -1,32 +1,39 @@
 import { TasksStateType } from "../App"
 
 
-export type Action1Type = {
-    type: "1",
-    id: string
+export type RemoveTaskActionType = {
+    type: "REMOVE_TASK"
+    listId: string
+    taskId: string
 }
-export type Action2Type = {
-    type: "2",
+export type AddTaskActionType = {
+    type: "ADD_TASK"
+    listId: string
     title: string
 }
 
-type ActionsType = Action2Type | Action1Type
+type ActionsType = AddTaskActionType | RemoveTaskActionType
 
 
 export const tasksReducer = (state: TasksStateType, action: ActionsType): TasksStateType => {
     switch (action.type) {
-        case "1":
-            return { ...state }
-        case "2":
+        case "REMOVE_TASK":
+            const stateCopy = { ...state }
+            const tasks = state[action.listId]
+            const filteredTasks = tasks.filter(el => el.id != action.taskId)
+            stateCopy[action.listId] = filteredTasks
+            return stateCopy
+        case "ADD_TASK":
+            
             return { ...state }
     }
 }
 
 
 
-export const action1AC = (id: string): Action1Type => {
-    return { type: "1", id: id }
+export const removeTaskAC = (listId: string, taskId: string): RemoveTaskActionType => {
+    return { type: "REMOVE_TASK", listId, taskId }
 }
-export const action2AC = (title: string): Action2Type => {
-    return { type: "2", title: title }
+export const addTaskAC = (listId: string, title: string ): AddTaskActionType => {
+    return { type: "ADD_TASK", listId, title }
 }
