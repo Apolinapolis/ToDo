@@ -40,7 +40,7 @@ export const todolistsReducer = (state: Array<ToDoListType>, action: ActionType)
             // если нашелся
             if (list) { list.filter = action.filter }
             return [...state];    
-        default: throw new Error("unexpected action")
+        default: throw new Error("unexpected action") // return state
     }
 }
 

@@ -19,7 +19,7 @@ export type ToDoListType = {
   title: string,
   filter: FilterValuesType,
 }
-type TasksStateType = {
+export type TasksStateType = {
   [key: string]: Array<TaskType>
 }
 function App() {
@@ -41,8 +41,8 @@ function App() {
       { id: v1(), title: "Yoga", isDone: false },
     ],
     [todolistid2]: [
-      { id: v1(), title: "sex", isDone: true },
-      { id: v1(), title: "ganja", isDone: false },
+      { id: v1(), title: "RUN", isDone: true },
+      { id: v1(), title: "SWIM", isDone: false },
     ]
   })
 

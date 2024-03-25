@@ -1,7 +1,6 @@
 import { v1 } from 'uuid';
 import { FilterValuesType, ToDoListType } from "../App" 
 import { AddTodolistAC, ChangeTodolistFilterAC, ChangeTodolistTitleAC, RemoveTodolistAC, todolistsReducer } from "./todolist-reducer";
-import { CHANGE_TODOLIST_FILTERactionType } from "./todolist-reducer"
 
 test("todolist should be added", () => {
     let idOne = v1()
