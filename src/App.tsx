@@ -87,9 +87,10 @@ function App() {
   }
 
   function addList(title: string) {
-    let todolistid: ToDoListType = { id: v1(), title: title, filter: "All" }
-    setTodolists([todolistid, ...todolists])
-    setTasks({ ...tasksObj, [todolistid.id]: [] })
+    let newTodolistID = v1()
+    let newTodolist: ToDoListType = { id: newTodolistID , title, filter: "All" }
+    setTodolists([newTodolist, ...todolists])
+    setTasks({ ...tasksObj, [newTodolistID]: [] }) // mb todolistid.id
   }
 
   function changeTaskTitle(id: string, newTitle: string, todolistId: string) {
