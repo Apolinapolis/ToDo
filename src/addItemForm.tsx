@@ -8,7 +8,7 @@ type addItemFormPropsType = {
 
 export function AddItemForm(props: addItemFormPropsType) {
 
-  const [newTaskTitle, setNewTaskTitle] = useState("Learn React")
+  const [newTaskTitle, setNewTaskTitle] = useState("")
 
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => { setNewTaskTitle(e.currentTarget.value) }
 
@@ -22,7 +22,7 @@ export function AddItemForm(props: addItemFormPropsType) {
 
   return <div>
     <TextField 
-      label="Задача" 
+      label="Title" 
       variant="standard" 
       size="small" 
       error={!!error} 

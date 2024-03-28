@@ -16,8 +16,7 @@ test("todolist should be added", () => {
     const endState = todolistsReducer(startState, AddTodolistAC(newtodolistTitle))
 
     expect(endState.length).toBe(3)
-    expect(endState[2].title).toBe(newtodolistTitle)
-    expect(endState[2].filter).toBe("All")
+    expect(endState[0].title).toBe(newtodolistTitle)
 })
 
 test("todolist should be removed", () => {

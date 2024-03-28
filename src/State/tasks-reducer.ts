@@ -1,5 +1,5 @@
 import { TasksStateType } from "../App"
-import { ADD_TODOLISTactionType, REMOVE_TODOLISTactionType } from "./todolist-reducer";
+import { ADD_TODOLISTactionType, REMOVE_TODOLISTactionType, todolistid1 } from "./todolist-reducer";
 import { v1 } from 'uuid';
 
 
@@ -29,12 +29,24 @@ export type changeTitleTaskType = {
 type ActionsType = AddTaskActionType | RemoveTaskActionType | tooglingStatusType 
 | changeTitleTaskType | ADD_TODOLISTactionType | REMOVE_TODOLISTactionType
 
+const initialState:TasksStateType = {
+    [todolistid1]: [
+      { id: v1(), title: "React", isDone: false },
+      { id: v1(), title: "React", isDone: false },
+      { id: v1(), title: "React", isDone: false },
+      { id: v1(), title: "Sport", isDone: false },
+      { id: v1(), title: "CV", isDone: false },
+      { id: v1(), title: "Book", isDone: false },
+      { id: v1(), title: "CodeWars", isDone: false },
+      { id: v1(), title: "Yoga", isDone: false },
+    ]
+  }
 
-export const tasksReducer = (state: TasksStateType, action: ActionsType): TasksStateType => {
+export const tasksReducer = (state: TasksStateType = initialState, action: ActionsType): TasksStateType => {
     switch (action.type) {
         case "REMOVE_TASK":{
             const stateCopy = { ...state }
-            const tasks = state[action.listId]
+            const tasks = stateCopy[action.listId]
             const filteredTasks = tasks.filter(el => el.id != action.taskId)
             stateCopy[action.listId] = filteredTasks
             return stateCopy}
@@ -72,7 +84,7 @@ export const tasksReducer = (state: TasksStateType, action: ActionsType): TasksS
             delete stateCopy[action.id]
             return stateCopy
         }
-        default: throw new Error("undefined type")
+        default: return state
 }
 }
 

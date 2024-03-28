@@ -24,13 +24,18 @@ id: string
 title: string
 }
 
-export const todolistsReducer = (state: Array<ToDoListType>, action: ActionType): Array<ToDoListType>  => {
+export let todolistid1 = v1()
+
+const initialState:Array<ToDoListType> = [
+    { id: todolistid1, title: "Топим вперед!", filter: "All" }
+]
+export const todolistsReducer = (state: Array<ToDoListType> = initialState, action: ActionType): Array<ToDoListType>  => {
 
     switch (action.type) {
         case "REMOVE_TODOLIST":
            return state.filter(tl => tl.id !== action.id)
         case "ADD_TODOLIST":
-            return [ ...state, {id: action.id, title: action.title, filter: "All"}]
+            return [{id: action.id, title: action.title, filter: "All"}, ...state ]
         case "CHANGE_TODOLIST_TITLE":
             const todolist = state.find(t => t.id === action.id)
             // если нашелся
@@ -41,7 +46,7 @@ export const todolistsReducer = (state: Array<ToDoListType>, action: ActionType)
             // если нашелся
             if (list) { list.filter = action.filter }
             return [...state];    
-        default: throw new Error("unexpected action") // return state
+        default: return state
     }
 }
 
