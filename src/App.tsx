@@ -36,7 +36,6 @@ function App() {
       { id: v1(), title: "2x React", isDone: true },
       { id: v1(), title: "2x Resume", isDone: true },
       { id: v1(), title: "Sport", isDone: true },
-      { id: v1(), title: "Codewars", isDone: false },
       { id: v1(), title: "Book", isDone: false },
       { id: v1(), title: "Yoga", isDone: false },
     ],
