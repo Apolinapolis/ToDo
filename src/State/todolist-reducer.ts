@@ -27,7 +27,7 @@ title: string
 export let todolistid1 = v1()
 
 const initialState:Array<ToDoListType> = [
-    { id: todolistid1, title: "Топим вперед!", filter: "All" }
+    { id: todolistid1, title: "Настроение отличное ;)", filter: "All" }
 ]
 export const todolistsReducer = (state: Array<ToDoListType> = initialState, action: ActionType): Array<ToDoListType>  => {
 
