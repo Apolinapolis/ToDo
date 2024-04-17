@@ -1,7 +1,6 @@
 import { IconButton, TextField } from "@mui/material"
 import React, { ChangeEvent, KeyboardEvent, useState } from "react"
 import AddTaskIcon from '@mui/icons-material/AddTask';
-import { log } from "console";
 
 type addItemFormPropsType = {
   addItem: (title: string) => void
