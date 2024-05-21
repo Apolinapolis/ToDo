@@ -55,7 +55,7 @@ export const tasksReducer = (state: TasksStateType = initialState, action: Actio
             const stateCopy = { ...state }
             const currentListCopy = stateCopy[action.listId]
             const newTask = { id: v1(), title: action.title, isDone: false }
-            const newTasks = [newTask, ...currentListCopy] //currentListCopy.unshift(newTask) 
+            const newTasks = [newTask, ...currentListCopy]
             stateCopy[action.listId] = newTasks       
             return stateCopy}
 
