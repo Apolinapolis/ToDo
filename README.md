@@ -5,5 +5,4 @@
     <li>Jest testing</li>
     <li>Tests with Storybook</li>
     <li>Used server API</li>
-    <li>Single responsibility principle</li>
 </ul>
